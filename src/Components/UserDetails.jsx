@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-export const UserDetails = () => {
+const UserDetails = () => {
   const { id } = useParams();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -33,15 +33,21 @@ export const UserDetails = () => {
   }
 
   return (
-    <div className="p-4">
-    <h1 className="text-xl font-bold mb-4">User Details</h1>
-    {user && (
-      <div>
-        <p><strong>Name:</strong> {user.name}</p>
-        <p><strong>Email:</strong> {user.email}</p>
-        <p><strong>Profession:</strong> {user.profession}</p>
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+      <div className="max-w-md w-full bg-white shadow-md rounded-lg p-6">
+        <h1 className="text-xl font-bold mb-4">User Details</h1>
+        {user && (
+          <div>
+            <p className="mb-2"><strong>Name:</strong> {user.name}</p>
+            <p className="mb-2"><strong>Email:</strong> {user.email}</p>
+            <p className="mb-2"><strong>Profession:</strong> {user.profession}</p>
+            <p className="mb-2"><strong>Age:</strong> {user.age}</p>
+            <p className="mb-2"><strong>Gender:</strong> {user.gender}</p>
+          </div>
+        )}
       </div>
-    )}
-  </div>
+    </div>
   );
 };
+
+export default UserDetails;

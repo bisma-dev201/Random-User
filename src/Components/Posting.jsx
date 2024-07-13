@@ -17,7 +17,7 @@ const Posting = () => {
     }
   };
 
-  return <UserForm initialValues={{ username: '', email: '', age: '', profession: '', gender: false }} onSubmit={handleSubmit} />;
+  return <UserForm initialValues={{ name: '', email: '', age: '', profession: '', gender: false }} onSubmit={handleSubmit} />;
 };
 
 export default Posting;

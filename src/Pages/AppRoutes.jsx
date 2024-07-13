@@ -1,10 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './Home';
-import { UserDetails } from '../Components/UserDetails';
 import Contact from './Contact'
 import DeleteUser from '../Components/DeleteUser'
 import EditUserForm from '../Components/EditUserForm';
+import UserDetails from '../Components/UserDetails';
 
 const AppRoutes = () => {
   return (
