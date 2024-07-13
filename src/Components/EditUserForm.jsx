@@ -1,4 +1,3 @@
-// EditUserForm.jsx or wherever you render UserForm
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -12,7 +11,7 @@ const EditUserForm = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`https://api.example.com/users/${id}`);
+        const response = await axios.get(`https://6694d9014bd61d8314c8e2c1.mockapi.io/api/username/${id}`);
         setUser(response.data); // Assuming response.data has the user object
         setLoading(false);
       } catch (error) {
@@ -26,7 +25,7 @@ const EditUserForm = () => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      await axios.put(`https://api.example.com/users/${id}`, values);
+      await axios.put(`https://6694d9014bd61d8314c8e2c1.mockapi.io/api/username/${id}`, values);
       alert('User updated successfully!');
     } catch (error) {
       console.error('Error updating user:', error);
@@ -40,6 +39,7 @@ const EditUserForm = () => {
   }
 
   return <UserForm initialValues={user} onSubmit={handleSubmit} />;
+
 };
 
 export default EditUserForm;

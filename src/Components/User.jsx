@@ -6,14 +6,12 @@ import { useNavigate } from 'react-router-dom';
 export const User = () => {
 
   // const apiurl = 'https://jsonplaceholder.typicode.com/users'; // randomUser free Api
-  const apiurl = 'https://6694d9014bd61d8314c8e2c1.mockapi.io/api/username'; // Mock Api
-
-  const navigate = useNavigate()
+  const apiurl = 'https://6694d9014bd61d8314c8e2c1.mockapi.io/api/username';
+  const navigate = useNavigate();
 
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isError, setError] = useState(null);
-
 
   const fetchData = async () => {
     try {
@@ -31,7 +29,6 @@ export const User = () => {
     fetchData();
   }, []);
 
-
   const viewUser = (userId) => {
     navigate(`/user/view/${userId}`);
   };
@@ -43,7 +40,7 @@ export const User = () => {
   const deleteUser = async (userId) => {
     try {
       await axios.delete(`${apiurl}/${userId}`);
-      fetchData(); // Refresh the user list after deletion
+      fetchData();
     } catch (error) {
       console.log('Delete error:', error);
     }
@@ -107,5 +104,5 @@ export const User = () => {
         </table>
       </div>
     </div>
-  )
+  );
 };

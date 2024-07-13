@@ -2,7 +2,7 @@ import React from 'react';
 import UserForm from './UserForm';
 import axios from 'axios';
 
-const NewUserForm = () => {
+const Posting = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       // POST request to create a new user
@@ -20,4 +20,4 @@ const NewUserForm = () => {
   return <UserForm initialValues={{ username: '', email: '', age: '', profession: '', gender: false }} onSubmit={handleSubmit} />;
 };
 
-export default NewUserForm;
+export default Posting;
