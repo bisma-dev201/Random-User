@@ -13,8 +13,8 @@ const Navbar = () => {
           <Link to="/" className="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
             User
           </Link>
-          <Link to="/contact" className="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
-            Contact
+          <Link to="/user/create" className="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
+            Create User
           </Link>
         </div>
       </div>

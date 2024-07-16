@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import UserForm from './UserForm';
 
 const EditUserForm = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -12,7 +15,7 @@ const EditUserForm = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(`https://6694d9014bd61d8314c8e2c1.mockapi.io/api/username/${id}`);
-        setUser(response.data); // Assuming response.data has the user object
+        setUser(response.data);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching user:', error);
@@ -26,9 +29,11 @@ const EditUserForm = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       await axios.put(`https://6694d9014bd61d8314c8e2c1.mockapi.io/api/username/${id}`, values);
-      alert('User updated successfully!');
+      toast.success('User updated successfully!');
+      navigate('/'); // Redirect to the User page
     } catch (error) {
       console.error('Error updating user:', error);
+      toast.error('Error updating user. Please try again.');
     } finally {
       setSubmitting(false);
     }
@@ -39,7 +44,6 @@ const EditUserForm = () => {
   }
 
   return <UserForm initialValues={user} onSubmit={handleSubmit} />;
-
 };
 
 export default EditUserForm;
