@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 export const User = () => {
 
   // const apiurl = 'https://jsonplaceholder.typicode.com/users'; // randomUser free Api
-  const apiurl = 'https://6694d9014bd61d8314c8e2c1.mockapi.io/api/username';
+  const apiurl = 'https://6694d9014bd61d8314c8e2c1.mockapi.io/api/username'; // mock api 
   const navigate = useNavigate();
 
   const [users, setUsers] = useState([]);
@@ -16,6 +17,7 @@ export const User = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(apiurl);
+      // console.log("🚀 ~ fetchData ~ response:", response)
       setUsers(response.data);
       setLoading(false);
     } catch (error) {
@@ -40,9 +42,11 @@ export const User = () => {
   const deleteUser = async (userId) => {
     try {
       await axios.delete(`${apiurl}/${userId}`);
+      toast.success('User deleted successfully.');
       fetchData();
     } catch (error) {
       console.log('Delete error:', error);
+      toast.error('Error deleting user.');
     }
   };
 

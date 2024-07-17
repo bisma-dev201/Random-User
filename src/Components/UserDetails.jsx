@@ -42,7 +42,7 @@ const UserDetails = () => {
             <p className="mb-2"><strong>Email:</strong> {user.email}</p>
             <p className="mb-2"><strong>Profession:</strong> {user.profession}</p>
             <p className="mb-2"><strong>Age:</strong> {user.age}</p>
-            <p className="mb-2"><strong>Gender:</strong> {user.gender}</p>
+            <p className="mb-2"><strong>Employed:</strong> {user.employed}</p>
           </div>
         )}
       </div>

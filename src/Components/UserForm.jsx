@@ -8,13 +8,13 @@ const UserForm = ({ initialValues, onSubmit }) => {
     email: Yup.string().email('Invalid email').required('Email is required'),
     age: Yup.number().required('Age is required').positive('Age must be a positive number'),
     profession: Yup.string().required('Profession is required'),
-    gender: Yup.boolean().required('Gender is required'),
+    employed: Yup.boolean().required('Employed is required'),
   });
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <Formik
-        initialValues={initialValues || { name: '', email: '', age: '', profession: '', gender: false }}
+        initialValues={initialValues || { name: '', email: '', age: '', profession: '', employed: false }}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
@@ -76,15 +76,15 @@ const UserForm = ({ initialValues, onSubmit }) => {
               <div className="flex items-center">
                 <Field
                   type="checkbox"
-                  id="gender"
-                  name="gender"
+                  id="employed"
+                  name="employed"
                   className="mt-1 mr-2 border rounded shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
                 />
-                <label htmlFor="gender" className="text-sm font-medium text-gray-700">
-                  Gender
+                <label htmlFor="employed" className="text-sm font-medium text-gray-700">
+                  Employed
                 </label>
               </div>
-              <ErrorMessage name="gender" component="div" className="text-red-500 text-sm mt-1" />
+              <ErrorMessage name="employed" component="div" className="text-red-500 text-sm mt-1" />
             </div>
 
             <button

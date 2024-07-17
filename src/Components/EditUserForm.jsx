@@ -27,10 +27,11 @@ const EditUserForm = () => {
   }, [id]);
 
   const handleSubmit = async (values, { setSubmitting }) => {
+    // console.log("🚀 ~ handleSubmit ~ values:", values)
     try {
       await axios.put(`https://6694d9014bd61d8314c8e2c1.mockapi.io/api/username/${id}`, values);
       toast.success('User updated successfully!');
-      navigate('/'); // Redirect to the User page
+      navigate('/');
     } catch (error) {
       console.error('Error updating user:', error);
       toast.error('Error updating user. Please try again.');
